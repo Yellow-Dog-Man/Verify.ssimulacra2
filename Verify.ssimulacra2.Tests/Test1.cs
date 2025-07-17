@@ -1,5 +1,4 @@
-﻿using DiffEngine;
-using ssimulacra2.NET;
+﻿using ssimulacra2.NET;
 using System.Runtime.CompilerServices;
 
 namespace Verify.ssimulacra2.Tests;
@@ -26,14 +25,10 @@ public partial class Ssimulacra2Tests
     public async Task TestDistorted(string filepath)
     {
         // This one should fail
-        await VerifyFile(filepath)
+        await Verifier.ThrowsTask(async () =>
+            await VerifyFile(filepath)
                 .WithSsimulacra2(Ssimulacra2Quality.VisuallyLossless)
-                .DisableDiff();
-        //await Verifier.ThrowsTask(async () =>
-        //    await VerifyFile(filepath)
-        //        .WithSsimulacra2(Ssimulacra2Quality.VisuallyLossless)
-        //        .DisableDiff()
-        //).IgnoreStackTrace().UseMethodName("Distored_Ex");
-        
+                .DisableDiff()
+        ).IgnoreStackTrace().UseMethodName("Distored_Ex");
     }
 }
