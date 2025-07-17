@@ -26,3 +26,10 @@ jobs:
           dotnet-version: '9.0.x'
       - name: Run tests
         run: dotnet test
+      - name: Upload Test Results
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verify-test-results-${{github.run_id}}
+          path: |
+            **/*.received.*
