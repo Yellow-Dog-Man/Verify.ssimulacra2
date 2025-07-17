@@ -14,4 +14,10 @@ on:
 
 jobs:
   dotnet-test:
-    uses: Yellow-Dog-Man/composite-actions-templates/.github/workflows/generic-dotnet-tests.yml@main
+    name: "Build and Test"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: gerlero/apt-install@v1
+        with:
+          packages: libhwy-dev liblcms2-dev libjpeg-turbo8-dev libpng-dev libjpeg-dev zlib1g-dev libgif-dev
+      - uses: Yellow-Dog-Man/composite-actions-templates/.github/workflows/generic-dotnet-tests.yml@main
