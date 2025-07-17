@@ -1,4 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <!-- NuGet Meta-data -->
+	<PropertyGroup>
+		<Company>Yellow Dog Man Studios</Company>
+		<Authors>Yellow Dog Man Studios</Authors>
+		<PackageId>YellowDogMan.Verify.ssimulacra2</PackageId>
+		<Description>Enables you to use Ssimulacra2.Net as a Verify Image Comparer.</Description>
+		<Copyright>Copyright (c) Yellow Dog Man Studios s.r.o.</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryUrl>https://github.com/Yellow-Dog-Man/Verify.ssimulacra2</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageProjectURL>https://yellowdogman.com/</PackageProjectURL>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageTags>ssim ssim2 ssimulacra2 ssimulacra verify</PackageTags>
+		<PackageReleaseNotes>Initial release</PackageReleaseNotes>
+	</PropertyGroup>
+
+  <ItemGroup>
+		<None Include="..\Images\icon.png" Pack="true" PackagePath="\" />
+		<None Include="..\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
