@@ -1,0 +1,17 @@
+name: .NET Test
+
+on:
+  push:
+    paths-ignore:
+      - '**/*.md'
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - '**/*.md'
+
+jobs:
+  dotnet-test:
+    uses: Yellow-Dog-Man/composite-actions-templates/.github/workflows/generic-dotnet-tests.yml@main
