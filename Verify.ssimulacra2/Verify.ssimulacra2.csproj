@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Verify" Version="30.5.0-beta.1" />
+    <PackageReference Include="YellowDogMan.ssimulacra2.NET" Version="0.1.1" />
+  </ItemGroup>
+
+</Project>

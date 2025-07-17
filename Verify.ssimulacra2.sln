@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36212.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Verify.ssimulacra2", "Verify.ssimulacra2\Verify.ssimulacra2.csproj", "{6802538A-819E-422E-96F0-9B9927BE8EC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Verify.ssimulacra2.Tests", "Verify.ssimulacra2.Tests\Verify.ssimulacra2.Tests.csproj", "{92D57994-896D-47AA-9570-4297F6975175}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6802538A-819E-422E-96F0-9B9927BE8EC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6802538A-819E-422E-96F0-9B9927BE8EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6802538A-819E-422E-96F0-9B9927BE8EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6802538A-819E-422E-96F0-9B9927BE8EC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92D57994-896D-47AA-9570-4297F6975175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D57994-896D-47AA-9570-4297F6975175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D57994-896D-47AA-9570-4297F6975175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D57994-896D-47AA-9570-4297F6975175}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {461B4BC4-F318-43BB-907E-DF564A998E2B}
+	EndGlobalSection
+EndGlobal

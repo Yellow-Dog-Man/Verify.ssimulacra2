@@ -1,0 +1,9 @@
+﻿{
+  Type: VerifyException,
+  Message:
+Directory: {ProjectDirectory}
+New:
+  - Received: Ssimulacra2Tests.TestDistorted_filepath=carrots_8bit.png.received.png
+    Verified: Ssimulacra2Tests.TestDistorted_filepath=carrots_8bit.png.verified.png
+
+}
