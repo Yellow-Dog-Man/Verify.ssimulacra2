@@ -36,21 +36,23 @@ public static class VerifySsimulacra2
         IReadOnlyDictionary<string, object> context)
     {
         double threshold = (int) Ssimulacra2Quality.VisuallyLossless;
+        bool round = true;
         if (context.GetSettings(SsimulacraSettings.SettingsKey, out SsimulacraSettings? settings))
         {
             threshold = settings.Threshold;   
+            round = settings.Round;
         }
 
         byte[] receivedBuffer = ConvertStream(received);
         byte[] verifiedBuffer = ConvertStream(verified);
 
-        var score = Ssimulacra2.ComputeFromMemory(verifiedBuffer, receivedBuffer);
+        double score = Ssimulacra2.ComputeFromMemory(verifiedBuffer, receivedBuffer);
+        if (round)
+            score = Math.Round(score);
 
         var compare = score > threshold;
         if (compare)
-        {
             return Task.FromResult(CompareResult.Equal);
-        }
 
         return Task.FromResult(CompareResult.NotEqual($"diff > threshold. threshold: {threshold}, score: {score}"));
     }
@@ -58,6 +60,9 @@ public static class VerifySsimulacra2
     // Largely based on: https://stackoverflow.com/a/2630539
     private static byte[] ConvertStream(Stream stream)
     {
+        if (stream.Position != 0)
+            throw new InvalidOperationException($"Expected stream to be at start");
+
         if (stream is MemoryStream ms)
             return ms.ToArray();
         return ReadFully(stream);

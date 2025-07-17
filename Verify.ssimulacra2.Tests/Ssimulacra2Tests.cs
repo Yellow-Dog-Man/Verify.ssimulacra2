@@ -29,6 +29,9 @@ public partial class Ssimulacra2Tests
             await VerifyFile(filepath)
                 .WithSsimulacra2(Ssimulacra2Quality.VisuallyLossless)
                 .DisableDiff()
-        ).IgnoreStackTrace().UseMethodName("Distored_Ex");
+        )
+        .IgnoreStackTrace()
+        .UseMethodName("Distored_Ex")
+        .ScrubEmptyLines();
     }
 }

@@ -5,16 +5,16 @@ namespace Verify.ssimulacra2;
 
 // Largely based uppon Verify.Phash by Simon Cropp
 public static class SettingsTasksExtensions {
-    public static SettingsTask WithSsimulacra2(this SettingsTask settings, double threshold)
+    public static SettingsTask WithSsimulacra2(this SettingsTask settings, double threshold = (int)Ssimulacra2Quality.VisuallyLossless, bool round = true)
     {
         settings.UseStreamComparer(VerifySsimulacra2.CompareStreams);
         Apply(settings.CurrentSettings.Context, new SsimulacraSettings(threshold));
         return settings;
     }
 
-    public static SettingsTask WithSsimulacra2(this SettingsTask settings, Ssimulacra2Quality minimumQuality)
+    public static SettingsTask WithSsimulacra2(this SettingsTask settings, Ssimulacra2Quality minimumQuality = Ssimulacra2Quality.VisuallyLossless, bool round = true)
     {
-        return WithSsimulacra2(settings, (int)minimumQuality);
+        return WithSsimulacra2(settings, (int)minimumQuality, round);
     }
 
     internal static void Apply(Dictionary<string, object> context, SsimulacraSettings settings)
@@ -24,13 +24,13 @@ public static class SettingsTasksExtensions {
 }
 public static class VerifySettingsExtensions
 {
-    public static VerifySettings WithSsimulacra2(this VerifySettings settings, Ssimulacra2Quality minimumQuality)
+    public static VerifySettings WithSsimulacra2(this VerifySettings settings, Ssimulacra2Quality minimumQuality = Ssimulacra2Quality.VisuallyLossless, bool round = true)
     {
-        return WithSsimulacra2(settings, (int)minimumQuality);
+        return WithSsimulacra2(settings, (int)minimumQuality, round);
     }
-    public static VerifySettings WithSsimulacra2(this VerifySettings settings, double threshold)
+    public static VerifySettings WithSsimulacra2(this VerifySettings settings, double threshold = (int)Ssimulacra2Quality.VisuallyLossless, bool round = true)
     {
-        SettingsTasksExtensions.Apply(settings.Context, new SsimulacraSettings(threshold));
+        SettingsTasksExtensions.Apply(settings.Context, new SsimulacraSettings(threshold, round));
         settings.UseStreamComparer(VerifySsimulacra2.CompareStreams);
 
         return settings;
@@ -55,8 +55,9 @@ internal static class IReadonlyDictionaryExtensions
 }
 
 // TODO: Alpha
-public class SsimulacraSettings(double threshold = (int)Ssimulacra2Quality.VisuallyLossless)
+public class SsimulacraSettings(double threshold = (int)Ssimulacra2Quality.VisuallyLossless, bool round = true)
 {
     public static string SettingsKey => "Ssimulacra2";
     public double Threshold { get; } = threshold;
+    public bool Round { get; } = round;
 }

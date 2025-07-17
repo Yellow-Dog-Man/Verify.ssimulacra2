@@ -5,15 +5,10 @@ Directory: {ProjectDirectory}
 NotEqual:
   - Received: Ssimulacra2Tests.TestDistorted_filepath=carrots_8bit.png.received.png
     Verified: Ssimulacra2Tests.TestDistorted_filepath=carrots_8bit.png.verified.png
-
 FileContent:
-
 NotEqual:
-
 Received: Ssimulacra2Tests.TestDistorted_filepath=carrots_8bit.png.received.png
 Verified: Ssimulacra2Tests.TestDistorted_filepath=carrots_8bit.png.verified.png
 Compare Result:
-diff > threshold. threshold: 90, score: 59.197183000437875
-
-
+diff > threshold. threshold: 90, score: 59
 }
