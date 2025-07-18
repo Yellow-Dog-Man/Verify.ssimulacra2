@@ -1,16 +1,32 @@
 # Verify.ssimulacra2
 
+[![Nuget downloads](https://img.shields.io/nuget/v/YellowDogMan.Verify.ssimulacra2.svg)](https://www.nuget.org/packages/YellowDogMan.Verify.ssimulacra2)
+[![Nuget](https://img.shields.io/nuget/dt/YellowDogMan.Verify.ssimulacra2)](https://www.nuget.org/packages/YellowDogMan.Verify.ssimulacra2)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Yellow-Dog-Man/Verify.ssimulacra2/test.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](/LICENSE.txt)
+
+
 Enables you to use [Ssimulacra2.Net](https://github.com/YellowDogMan/Ssimulacra2.Net) as a [Verify](https://github.com/VerifyTests/Verify), [Image Comparer](https://github.com/VerifyTests/Verify/blob/main/docs/comparer.md).
 
 ## Status
 WIP, see [issue list](https://github.com/VerifyTests/Verify.ssimulacra2/issues).
 
 # Setup
+
+### Setup Verify
 If you are new to [Verify](https://github.com/VerifyTests/Verify) we recommend following [Verify's Setup Guide](https://github.com/VerifyTests/Verify/blob/main/docs/getting-started.md).
 
+### Install Package
+Install [Verify.ssimulacra2 with NuGet](https://www.nuget.org/packages/YellowDogMan.Verify.ssimulacra2):
+
+```
+Install-Package YellowDogMan.Verify.ssimulacra2
+```
+
+### Register Comparer
 Once you're setup and comfortable, you'll need to register the Ssimulacra2 comparer. There's a couple of ways to do this depending on your needs.
 
-## Statically
+#### Statically
 If you want to use the Ssimulacra2 comparer statically, you can use the following code:
 
 ```csharp
@@ -23,25 +39,28 @@ public static void Init()
 
 Which will automatically register the comparer.
 
-TODO: This might also occur if you use, `VerifierSettings.InitializePlugins()`, e.g.
+Or, you can register it automatically with:
 ```cs
 [ModuleInitializer]
     public static void InitOther() =>
         VerifierSettings.InitializePlugins();
 ```
+TODO: We need to double check this works, See [this issue](https://github.com/Yellow-Dog-Man/Verify.ssimulacra2/issues/1)
 
-We need to double check.
-
-## Dynamically when you need it
+#### Dynamically when you need it
 
 ```cs
+// Defaults to 90
 await VerifyFile("carrots.png")
-        .WithSsimulacra2(90);
-```
+    .WithSsimulacra2(); 
 
-```cs
-    await VerifyFile("carrots.png")
-        .WithSsimulacra2(Ssimulacra2Quality.VisuallyLossless);
+// Specified Numerically
+await VerifyFile("carrots.png")
+    .WithSsimulacra2(90);
+
+// Specified using Enums
+await VerifyFile("carrots.png")
+    .WithSsimulacra2(Ssimulacra2Quality.VisuallyLossless);
 ```
 
 ## Scores
